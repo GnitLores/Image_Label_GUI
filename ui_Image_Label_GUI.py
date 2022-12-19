@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'Image_Label_GUI.ui'
+# Form implementation generated from reading ui file 'c:\code\Image_Label_GUI\Image_Label_GUI.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.0
 #
@@ -19,7 +19,7 @@ class Ui_MainWindow(object):
         self.button1.setGeometry(QtCore.QRect(360, 450, 111, 51))
         self.button1.setObjectName("button1")
         self.label1 = QtWidgets.QLabel(self.centralwidget)
-        self.label1.setGeometry(QtCore.QRect(300, 110, 221, 61))
+        self.label1.setGeometry(QtCore.QRect(310, 110, 221, 61))
         self.label1.setObjectName("label1")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
@@ -27,11 +27,27 @@ class Ui_MainWindow(object):
         self.menubar.setObjectName("menubar")
         self.menuFile = QtWidgets.QMenu(self.menubar)
         self.menuFile.setObjectName("menuFile")
+        self.menuEdit = QtWidgets.QMenu(self.menubar)
+        self.menuEdit.setObjectName("menuEdit")
         MainWindow.setMenuBar(self.menubar)
         self.statusbar = QtWidgets.QStatusBar(MainWindow)
         self.statusbar.setObjectName("statusbar")
         MainWindow.setStatusBar(self.statusbar)
+        self.actionNew = QtGui.QAction(MainWindow)
+        self.actionNew.setObjectName("actionNew")
+        self.actionSave = QtGui.QAction(MainWindow)
+        self.actionSave.setObjectName("actionSave")
+        self.actionCopy = QtGui.QAction(MainWindow)
+        self.actionCopy.setObjectName("actionCopy")
+        self.actionPaste = QtGui.QAction(MainWindow)
+        self.actionPaste.setShortcut("")
+        self.actionPaste.setObjectName("actionPaste")
+        self.menuFile.addAction(self.actionNew)
+        self.menuFile.addAction(self.actionSave)
+        self.menuEdit.addAction(self.actionCopy)
+        self.menuEdit.addAction(self.actionPaste)
         self.menubar.addAction(self.menuFile.menuAction())
+        self.menubar.addAction(self.menuEdit.menuAction())
 
         self.retranslateUi(MainWindow)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
@@ -42,13 +58,14 @@ class Ui_MainWindow(object):
         self.button1.setText(_translate("MainWindow", "Press me!"))
         self.label1.setText(_translate("MainWindow", "Hello!"))
         self.menuFile.setTitle(_translate("MainWindow", "File"))
-
-
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = Ui_MainWindow()
-    ui.setupUi(MainWindow)
-    MainWindow.show()
-    sys.exit(app.exec())
+        self.menuEdit.setTitle(_translate("MainWindow", "Edit"))
+        self.actionNew.setText(_translate("MainWindow", "New"))
+        self.actionNew.setStatusTip(_translate("MainWindow", "Create new file"))
+        self.actionNew.setShortcut(_translate("MainWindow", "Ctrl+N"))
+        self.actionSave.setText(_translate("MainWindow", "Save"))
+        self.actionSave.setStatusTip(_translate("MainWindow", "Save file"))
+        self.actionSave.setShortcut(_translate("MainWindow", "Ctrl+S"))
+        self.actionCopy.setText(_translate("MainWindow", "Copy"))
+        self.actionCopy.setStatusTip(_translate("MainWindow", "Copy file"))
+        self.actionPaste.setText(_translate("MainWindow", "Paste"))
+        self.actionPaste.setStatusTip(_translate("MainWindow", "Paste file"))
