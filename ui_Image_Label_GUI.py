@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'c:\code\Image_Label_GUI\Image_Label_GUI.ui'
+# Form implementation generated from reading ui file 'image_label_gui.ui'
 #
 # Created by: PyQt6 UI code generator 6.4.0
 #
@@ -69,3 +69,13 @@ class Ui_MainWindow(object):
         self.actionCopy.setStatusTip(_translate("MainWindow", "Copy file"))
         self.actionPaste.setText(_translate("MainWindow", "Paste"))
         self.actionPaste.setStatusTip(_translate("MainWindow", "Paste file"))
+
+
+if __name__ == "__main__":
+    import sys
+    app = QtWidgets.QApplication(sys.argv)
+    MainWindow = QtWidgets.QMainWindow()
+    ui = Ui_MainWindow()
+    ui.setupUi(MainWindow)
+    MainWindow.show()
+    sys.exit(app.exec())
