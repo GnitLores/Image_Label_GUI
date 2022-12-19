@@ -1,4 +1,5 @@
 <RCC>
-  <qresource prefix="Icons"/>
-  <qresource prefix="Images"/>
+  <qresource prefix="Images">
+    <file>69oods.jpg</file>
+  </qresource>
 </RCC>

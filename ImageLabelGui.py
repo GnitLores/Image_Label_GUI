@@ -1,5 +1,6 @@
 import sys
-from PyQt6.QtWidgets import QApplication
+
+from PySide6.QtWidgets import QApplication
 from model.Model import Model
 from controllers.MainController import MainController
 from views.MainView import MainView

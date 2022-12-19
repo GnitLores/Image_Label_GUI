@@ -1,5 +1,5 @@
-from PyQt6.QtWidgets import QMainWindow
-from PyQt6.QtCore import pyqtSlot
+from PySide6.QtWidgets import QMainWindow
+from PySide6.QtCore import Slot
 from views.ui_MainView import Ui_MainWindow
 
 
@@ -28,14 +28,17 @@ class MainView(QMainWindow):
         # set a default value
         self._main_controller.change_amount(42)
 
-    @pyqtSlot(int)
+    # @pyqtSlot(int)
+    @Slot(int)
     def on_amount_changed(self, value):
         self._ui.spinBox_amount.setValue(value)
 
-    @pyqtSlot(str)
+    # @pyqtSlot(str)
+    @Slot(int)
     def on_even_odd_changed(self, value):
         self._ui.label_even_odd.setText(value)
 
-    @pyqtSlot(bool)
+    # @pyqtSlot(bool)
+    @Slot(int)
     def on_enable_reset_changed(self, value):
         self._ui.pushButton_reset.setEnabled(value)
