@@ -24,7 +24,7 @@ class MainView(QMainWindow):
             lambda: self._main_controller.change_image(file_path="2001015.jpg")
         )
 
-        # listen for model event signals
+        # Listen for model event signals
         self._model.image_changed.connect(self.image_value_changed)
 
         # set a default image
@@ -36,6 +36,10 @@ class MainView(QMainWindow):
         # rect_item.changeColor()
         # rect_item.move(600, 100)
 
+    # Starting slot name with "on_" triggers code that tries to automatically connect.
+    # This doesn't work and gives a warning, but it is not needed as the connection is made
+    # manually.
+    # To avoid warnings, don't start the name with "on_", e.g "on_image_value_changed".
     @Slot(np.ndarray)
     def image_value_changed(self, value):
         self.plot_image(value)
