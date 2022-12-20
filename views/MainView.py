@@ -50,6 +50,8 @@ class MainView(QMainWindow):
         rect_item = RectItem(QtCore.QRectF(100, 100, 100, 100))
         plotWidget.addItem(rect_item)
         rect_item.move(500, 500)
+        rect_item.changeColor()
+        rect_item.move(600, 100)
 
     # @pyqtSlot(int)
     @Slot(int)
@@ -72,20 +74,29 @@ class RectItem(pg.GraphicsObject):
         super().__init__(parent)
         self._rect = rect
         self.picture = QtGui.QPicture()
+
+        self.transparency = 20  # 0-255
+        self.background_rgb = [255, 0, 0]  # 0-255
+        self.border_color = "r"
+        # self.brush = QBrush(QColor(*rgb, transparency), Qt.BrushStyle.SolidPattern)
+
         self._generate_picture()
 
     @property
     def rect(self):
         return self._rect
 
+    @property
+    def brush(self):
+        return QBrush(
+            QColor(*self.background_rgb, self.transparency), Qt.BrushStyle.SolidPattern
+        )
+
     def _generate_picture(self):
         painter = QtGui.QPainter(self.picture)
-        painter.setPen(pg.mkPen("r", width=2))
-        transparency = 20  # 0-255
-        r, g, b = 255, 0, 0
-        painter.setBrush(
-            QBrush(QColor(r, g, b, transparency), Qt.BrushStyle.SolidPattern)
-        )
+        painter.setPen(pg.mkPen(self.border_color, width=2))
+
+        painter.setBrush(self.brush)
         painter.drawRect(self.rect)
         painter.end()
 
@@ -99,4 +110,9 @@ class RectItem(pg.GraphicsObject):
         self.rect.moveCenter(QtCore.QPointF(x, y))
         self.prepareGeometryChange()
         self._generate_picture()
+        self.update()
+
+    def changeColor(self):
+        self.background_rgb = [0, 255, 0]
+        self.border_color = "g"
         self.update()
