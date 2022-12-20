@@ -80,11 +80,10 @@ class RectItem(pg.GraphicsObject):
     def _generate_picture(self):
         painter = QtGui.QPainter(self.picture)
         painter.setPen(pg.mkPen("r", width=2))
-        # painter.setBrush(pg.mkBrush("g"))
-        # painter.drawRect(self.rect)
         transparency = 20  # 0-255
+        r, g, b = 255, 0, 0
         painter.setBrush(
-            QBrush(QColor(255, 0, 0, transparency), Qt.BrushStyle.SolidPattern)
+            QBrush(QColor(r, g, b, transparency), Qt.BrushStyle.SolidPattern)
         )
         painter.drawRect(self.rect)
         painter.end()
