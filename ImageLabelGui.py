@@ -14,6 +14,10 @@ class App(QApplication):
         self.main_view = MainView(self.model, self.main_controller)
         self.main_view.show()
 
+        folder_path = "C:\code\Image_Label_GUI"
+        file_name = "2001022.jpg"
+        self.model.load_image(folder_path, file_name)
+
 
 if __name__ == "__main__":
     app = App(sys.argv)
