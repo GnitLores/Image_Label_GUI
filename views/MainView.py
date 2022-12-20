@@ -75,10 +75,10 @@ class RectItem(pg.GraphicsObject):
         self._rect = rect
         self.picture = QtGui.QPicture()
 
-        self.transparency = 20  # 0-255
         self.background_rgb = [255, 0, 0]  # 0-255
-        self.border_color = "r"
-        # self.brush = QBrush(QColor(*rgb, transparency), Qt.BrushStyle.SolidPattern)
+        self.background_opacity = 20  # 0-255
+        self.border_rgb = [255, 0, 0]  # 0-255
+        self.border_opacity = 255  # 0-255
 
         self._generate_picture()
 
@@ -89,12 +89,13 @@ class RectItem(pg.GraphicsObject):
     @property
     def brush(self):
         return QBrush(
-            QColor(*self.background_rgb, self.transparency), Qt.BrushStyle.SolidPattern
+            QColor(*self.background_rgb, self.background_opacity),
+            Qt.BrushStyle.SolidPattern,
         )
 
     def _generate_picture(self):
         painter = QtGui.QPainter(self.picture)
-        painter.setPen(pg.mkPen(self.border_color, width=2))
+        painter.setPen(pg.mkPen(QColor(*self.border_rgb, self.border_opacity), width=2))
 
         painter.setBrush(self.brush)
         painter.drawRect(self.rect)
@@ -114,5 +115,5 @@ class RectItem(pg.GraphicsObject):
 
     def changeColor(self):
         self.background_rgb = [0, 255, 0]
-        self.border_color = "g"
+        self.border_rgb = [0, 255, 0]
         self.update()
