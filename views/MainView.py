@@ -25,7 +25,7 @@ class MainView(QMainWindow):
         )
 
         # listen for model event signals
-        self._model.image_changed.connect(self.on_image_changed)
+        self._model.image_changed.connect(self.image_value_changed)
 
         # set a default image
         self._main_controller.change_image()
@@ -37,7 +37,7 @@ class MainView(QMainWindow):
         # rect_item.move(600, 100)
 
     @Slot(np.ndarray)
-    def on_image_changed(self, value):
+    def image_value_changed(self, value):
         self.plot_image(value)
 
     def _init_custom_components(self):

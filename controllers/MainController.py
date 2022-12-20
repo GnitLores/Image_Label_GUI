@@ -17,7 +17,7 @@ class MainController(QObject):
     #     # calculate button enabled state
     #     self._model.enable_reset = True if value else False
 
-    @Slot()
+    @Slot(str, str)
     def change_image(
         self, folder_path="C:\code\Image_Label_GUI", file_path="2001022.jpg"
     ):
