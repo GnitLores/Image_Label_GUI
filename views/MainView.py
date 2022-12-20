@@ -49,6 +49,7 @@ class MainView(QMainWindow):
 
         rect_item = RectItem(QtCore.QRectF(100, 100, 100, 100))
         plotWidget.addItem(rect_item)
+        rect_item.move(500, 500)
 
     # @pyqtSlot(int)
     @Slot(int)
@@ -93,3 +94,9 @@ class RectItem(pg.GraphicsObject):
 
     def boundingRect(self):
         return QtCore.QRectF(self.picture.boundingRect())
+
+    def move(self, x, y):
+        self.rect.moveCenter(QtCore.QPointF(x, y))
+        self.prepareGeometryChange()
+        self._generate_picture()
+        self.update()
