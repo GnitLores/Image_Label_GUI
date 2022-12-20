@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>243</width>
-    <height>265</height>
+    <width>914</width>
+    <height>1067</height>
    </rect>
   </property>
   <widget class="QWidget" name="centralwidget">
@@ -16,7 +16,22 @@
      <widget class="QSpinBox" name="spinBox_amount"/>
     </item>
     <item>
-     <widget class="QLabel" name="label_even_odd"/>
+     <widget class="QFrame" name="testFrame">
+      <property name="frameShape">
+       <enum>QFrame::StyledPanel</enum>
+      </property>
+      <property name="frameShadow">
+       <enum>QFrame::Raised</enum>
+      </property>
+      <layout class="QVBoxLayout" name="verticalLayout">
+       <item>
+        <widget class="PlotWidget" name="plotWidget" native="true"/>
+       </item>
+       <item>
+        <widget class="QLabel" name="label_even_odd"/>
+       </item>
+      </layout>
+     </widget>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton_reset">
@@ -31,6 +46,14 @@
    </layout>
   </widget>
  </widget>
+ <customwidgets>
+  <customwidget>
+   <class>PlotWidget</class>
+   <extends>QWidget</extends>
+   <header>pyqtgraph</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources>
   <include location="../resources/resources.qrc"/>
  </resources>
