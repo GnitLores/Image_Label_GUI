@@ -7,13 +7,18 @@ class MainController(QObject):
 
         self._model = model
 
-    # @pyqtSlot(int)
-    @Slot(int)
-    def change_amount(self, value):
-        self._model.amount = value
+    # @Slot(int)
+    # def change_amount(self, value):
+    #     self._model.amount = value
 
-        # calculate even or odd
-        self._model.even_odd = "odd" if value % 2 else "even"
+    #     # calculate even or odd
+    #     self._model.even_odd = "odd" if value % 2 else "even"
 
-        # calculate button enabled state
-        self._model.enable_reset = True if value else False
+    #     # calculate button enabled state
+    #     self._model.enable_reset = True if value else False
+
+    @Slot()
+    def change_image(
+        self, folder_path="C:\code\Image_Label_GUI", file_path="2001022.jpg"
+    ):
+        self._model.load_image(folder_path, file_path)

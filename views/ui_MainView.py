@@ -15,9 +15,8 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QLabel, QMainWindow,
-    QPushButton, QSizePolicy, QSpinBox, QVBoxLayout,
-    QWidget)
+from PySide6.QtWidgets import (QApplication, QFrame, QMainWindow, QPushButton,
+    QSizePolicy, QVBoxLayout, QWidget)
 
 from pyqtgraph import PlotWidget
 import resources_rc
@@ -26,41 +25,30 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(914, 1067)
+        MainWindow.resize(810, 1237)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.vboxLayout = QVBoxLayout(self.centralwidget)
-        self.vboxLayout.setObjectName(u"vboxLayout")
-        self.spinBox_amount = QSpinBox(self.centralwidget)
-        self.spinBox_amount.setObjectName(u"spinBox_amount")
-
-        self.vboxLayout.addWidget(self.spinBox_amount)
-
-        self.testFrame = QFrame(self.centralwidget)
-        self.testFrame.setObjectName(u"testFrame")
-        self.testFrame.setFrameShape(QFrame.StyledPanel)
-        self.testFrame.setFrameShadow(QFrame.Raised)
-        self.verticalLayout = QVBoxLayout(self.testFrame)
+        self.background_frame = QFrame(self.centralwidget)
+        self.background_frame.setObjectName(u"background_frame")
+        self.background_frame.setGeometry(QRect(10, 0, 791, 1191))
+        self.background_frame.setFrameShape(QFrame.StyledPanel)
+        self.background_frame.setFrameShadow(QFrame.Raised)
+        self.verticalLayout = QVBoxLayout(self.background_frame)
         self.verticalLayout.setObjectName(u"verticalLayout")
-        self.plotWidget = PlotWidget(self.testFrame)
+        self.plotWidget = PlotWidget(self.background_frame)
         self.plotWidget.setObjectName(u"plotWidget")
 
         self.verticalLayout.addWidget(self.plotWidget)
 
-        self.label_even_odd = QLabel(self.testFrame)
-        self.label_even_odd.setObjectName(u"label_even_odd")
-
-        self.verticalLayout.addWidget(self.label_even_odd)
-
-
-        self.vboxLayout.addWidget(self.testFrame)
-
-        self.pushButton_reset = QPushButton(self.centralwidget)
-        self.pushButton_reset.setObjectName(u"pushButton_reset")
-        self.pushButton_reset.setEnabled(False)
-
-        self.vboxLayout.addWidget(self.pushButton_reset)
-
+        self.frame = QFrame(self.centralwidget)
+        self.frame.setObjectName(u"frame")
+        self.frame.setGeometry(QRect(10, 1200, 791, 31))
+        self.frame.setFrameShape(QFrame.StyledPanel)
+        self.frame.setFrameShadow(QFrame.Raised)
+        self.pushButton_change_image = QPushButton(self.frame)
+        self.pushButton_change_image.setObjectName(u"pushButton_change_image")
+        self.pushButton_change_image.setEnabled(True)
+        self.pushButton_change_image.setGeometry(QRect(320, 0, 85, 24))
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
@@ -69,7 +57,7 @@ class Ui_MainWindow(object):
     # setupUi
 
     def retranslateUi(self, MainWindow):
-        self.pushButton_reset.setText(QCoreApplication.translate("MainWindow", u"Reset", None))
+        self.pushButton_change_image.setText(QCoreApplication.translate("MainWindow", u"Change Image", None))
         pass
     # retranslateUi
 
