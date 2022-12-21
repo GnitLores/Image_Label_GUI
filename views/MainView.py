@@ -1,11 +1,10 @@
-from PySide6.QtWidgets import QMainWindow
-from PySide6.QtCore import Slot
-from views.ui_MainView import Ui_MainWindow
-import pyqtgraph as pg
-from PySide6 import QtGui, QtCore
-from PySide6.QtGui import QBrush, QColor, QPainter, QPen
-from PySide6.QtCore import Qt
 import numpy as np
+import pyqtgraph as pg
+from PySide6 import QtCore, QtGui
+from PySide6.QtCore import Qt, Slot
+from PySide6.QtGui import QBrush, QColor, QPainter, QPen
+from PySide6.QtWidgets import QMainWindow
+from views.ui_MainView import Ui_MainWindow
 
 
 class MainView(QMainWindow):

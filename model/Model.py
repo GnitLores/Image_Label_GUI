@@ -1,7 +1,8 @@
-from PySide6.QtCore import QObject, Signal
-import cv2
 import os
+
+import cv2
 import numpy as np
+from PySide6.QtCore import QObject, Signal
 
 
 class Model(QObject):
